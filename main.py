@@ -8,11 +8,10 @@ wr1 = st.number_input("Ketik winrate Anda",0.0)
 wr2 = st.number_input("Ketik winrate yang Anda inginkan",0.0)
 hitung = st.button("Hitung Winrate")
 
-if hitung:
-    if wr2 > wr1:
-        match2 = (match1 * (wr2 - wr1)) / (100 - wr2)
-        st.markdown(f"Anda harus bermain winstreak sebanyak **{ceil(match2)}** kali.")
+def calc(match1=match1, wr1=wr1, wr2=wr2):
+    match2Win = ceil((match1 * (wr2 - wr1)) / (100 - wr2))
+    match2Lose = floor((match1 * (wr2 - wr1)) / wr2)
+    return (match2Win,"winstreak") if wr2 > wr1 else (match2Lose,"losestreak")
 
-    else:
-        match2 = (match1 * (wr2 - wr1)) / wr2
-        st.markdown(f"Anda harus bermain losestreak sebanyak **{abs(floor(match2))}** kali.")
+if hitung:
+    st.markdown(f"Anda harus bermain {calc()[1]} sebanyak **{calc()[0]}** kali")
