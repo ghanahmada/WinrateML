@@ -18,14 +18,14 @@ if hitung:
         st.markdown(f"Anda harus bermain **{calc_match()[1]}** sebanyak **{calc_match()[0]}** kali")
         details,match_ke = st.expander("Perkembangan Winrate"), 1
         while match_ke <= calc_match()[0]:
-            def calc_match():
+            def calc_wr():
                 wr2_win = ((100 * match_ke) + (match1 * wr1)) / (match1 + match_ke)
                 wr2_lose = (match_ke + (match1 * wr1)) / (match1 + match_ke)
                 return wr2_win if calc_match()[1] == "winstreak" else wr2_lose
             if calc_match()[0] > 100 and match_ke == 51:
                 details.markdown("...")
                 match_ke = calc_match()[0]-49
-            details.markdown(f"match ke-{match_ke} = {round(calc_match(), 2)}%")
+            details.markdown(f"match ke-{match_ke} = {round(calc_wr(), 2)}%")
             match_ke += 1
             
     except: 
