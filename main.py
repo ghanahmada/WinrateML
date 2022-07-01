@@ -24,7 +24,7 @@ if hitung:
                     if ceil(calc()[0]) > 100 and match_Ke == 51:
                         details.write("...")
                         for match_Ke in range(ceil(calc()[0])-49,ceil(calc()[0]) + 1, 1):
-                            wr2 = (match_Ke + (match1 * wr1)) / (match1 + match_Ke)
+                            wr2 = ((100 * match_Ke) + (match1 * wr1)) / (match1 + match_Ke)
                             details.write(f"match ke-{str(match_Ke)} = {str(round(wr2, 2))}%")
                         break
                     details.write(f"match ke-{str(match_Ke)} = {str(round(wr2, 2))}%")
