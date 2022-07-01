@@ -27,4 +27,6 @@ if hitung:
                 match_ke = calc_match()[0]-49
             details.markdown(f"match ke-{match_ke} = {round(calc_match(), 2)}%")
             match_ke += 1
-    except: st.error("Mohon isi kolom di atas.")
+            
+    except: 
+        st.error("Mohon isi kolom di atas.")
