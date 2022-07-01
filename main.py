@@ -21,10 +21,22 @@ if hitung:
             if calc()[1] == "winstreak":
                 for match_Ke in range(1, ceil(calc()[0]) + 1, 1):
                     wr2 = ((100 * match_Ke) + (match1 * wr1)) / (match1 + match_Ke)
+                    if ceil(calc()[0]) > 100 and match_Ke == 51:
+                        details.write("...")
+                        for match_Ke in range(ceil(calc()[0])-49,ceil(calc()[0]) + 1, 1):
+                            wr2 = (match_Ke + (match1 * wr1)) / (match1 + match_Ke)
+                            details.write(f"match ke-{str(match_Ke)} = {str(round(wr2, 2))}%")
+                        break
                     details.write(f"match ke-{str(match_Ke)} = {str(round(wr2, 2))}%")
             else:
                 for match_Ke in range(1, abs(floor(calc()[0])) + 1, 1):
                     wr2 = (match_Ke + (match1 * wr1)) / (match1 + match_Ke)
+                    if abs(floor(calc()[0])) > 100 and match_Ke == 51:
+                        details.write("...")
+                        for match_Ke in range(abs(floor(calc()[0]))-49,abs(floor(calc()[0])) + 1, 1):
+                            wr2 = (match_Ke + (match1 * wr1)) / (match1 + match_Ke)
+                            details.write(f"match ke-{str(match_Ke)} = {str(round(wr2, 2))}%")
+                        break
                     details.write(f"match ke-{str(match_Ke)} = {str(round(wr2, 2))}%")
         except:
             details.markdown("*None*")
