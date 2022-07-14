@@ -1,6 +1,7 @@
 import streamlit as st
 from math import ceil, floor
 
+st.set_page_config(page_title="Winrate ML Calculator", page_icon=":video_game:", layout="wide")
 st.title("Winrate Mobile Legends Calculator")
 
 match1 = st.number_input("Berapa match Anda",0)
